@@ -10,12 +10,13 @@
                 $dsn= "mysql:hots=$this->host;dbname=$this->dbname";
                 $connection = new PDO($dsn, $this->user, $this->password);
                 $connection-> setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
-                echo "Conexión Exitosa";
+                // echo "Conexión Exitosa";
+                return $connection;
             }
             catch(PDOException $exception){
                 echo "Conexión Fallida".$exception->getMessage();
             }
         }
     }
-    $clase = new DBConfig;
+    $clase = new DBConfig();
     $clase->connect();
